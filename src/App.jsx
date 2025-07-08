@@ -4,7 +4,7 @@ import Mobile from "./components/Mobile.jsx"
 const App = () => {
 
   const [storeData, setStoreData]=useState([]);
-  const [count, setCount]=useState(0);
+  const [count, setCount]=useState(0);  
 
   const fetchData=async()=>{
     
@@ -20,12 +20,19 @@ const App = () => {
     fetchData()
   },[])
 
-console.log(storeData)
+console.log({storeData})
   return (
-    <div>
-      <Mobile name={"vivo-t4-5g"} price={14000}
-     />
-      <Mobile name={"samsung-5g"} price={21000}/>
+    <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-between"}}>
+     {storeData.map((item)=>{
+      return <div key={item.id}  style={{width:"300px",display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",
+        backgroundColor:"red",margin:"5px"
+      }} >
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+        <h3>Price : RS {item.price}</h3>
+        <img src={item.image} style={{width:"200px"}}></img>
+      </div>
+     })}
     </div>
   )
 }
