@@ -1,34 +1,13 @@
-import { useState } from "react";
-import {Product} from "./Product.jsx"
+import Mobile from "./components/Mobile.jsx"
 
-import {HomePage} from "./HomePage.jsx";
-
-export function App(){
-  
-  const [count, setCount]=useState(1000);
-
-  let handleClick=()=>{
-   setCount(count+1000); //2000
-  }
-
-  console.log("hiiii")
-
-
+const App = () => {
   return (
     <div>
-       <h1 >aman {count}</h1>
-       <h2>{count}</h2>
-       <p>para</p>
-       <button onClick={handleClick}>increase marks</button>
-
-       <Product/>
-        <Product/>
-         <Product/>
-         <Product></Product>
-
-          <HomePage/>
-          <HomePage></HomePage>
+      <Mobile name={"vivo-t4-5g"} price={14000}
+     />
+      <Mobile name={"samsung-5g"} price={21000}/>
     </div>
   )
 }
-export default App;
+
+export default App
