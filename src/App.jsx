@@ -1,39 +1,24 @@
-import { useEffect, useState } from "react";
-import Mobile from "./components/Mobile.jsx"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Mobile from "./components/Mobile"
+import HomePage from "./components/HomePage"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
+import Navbar from "./components/Navbar"
+
 
 const App = () => {
-
-  const [storeData, setStoreData]=useState([]);
-  const [count, setCount]=useState(0);  
-
-  const fetchData=async()=>{
-    
-    const response= await fetch("https://fakestoreapi.com/products");
-
-    const data= await response.json();
-  
-    setStoreData(data)
-
-  }
-
-  useEffect(()=>{
-    fetchData()
-  },[])
-
-console.log({storeData})
   return (
-    <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-between"}}>
-     {storeData.map((item)=>{
-      return <div key={item.id}  style={{width:"300px",display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",
-        backgroundColor:"red",margin:"5px"
-      }} >
-        <h2>{item.title}</h2>
-        <p>{item.description}</p>
-        <h3>Price : RS {item.price}</h3>
-        <img src={item.image} style={{width:"200px"}}></img>
-      </div>
-     })}
-    </div>
+    <>
+    <BrowserRouter>
+    <Navbar/>
+       <Routes>
+         <Route path="/mobile" element={<Mobile/>}/>
+         <Route path="/" element={<HomePage/>}/>
+         <Route path="/login" element={<Login/>}/>
+         <Route path="/signup" element={<Signup/>}/>
+       </Routes>
+    </BrowserRouter>
+    </>
   )
 }
 
