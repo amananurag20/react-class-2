@@ -12,10 +12,10 @@ const [formData, setFormData]=useState({
   mobile:"",
 })
     const handleChange=(event)=>{
-      const field=event.target.name;
+      const name=event.target.name;
       const newValue=event.target.value;
 
-      setFormData({...formData,[field]:newValue});
+      setFormData({...formData,[name]:newValue});
     }    
 
     console.log(formData)

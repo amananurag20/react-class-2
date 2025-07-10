@@ -4,11 +4,16 @@ import HomePage from "./components/HomePage"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import Navbar from "./components/Navbar"
-
+import { useState } from "react"
+import ThemeContext from "./context/ThemeContext"
 
 const App = () => {
+
+  const [theme, setTheme]= useState("dark");
+  const [auth, setAuth]= useState(true);
   return (
     <>
+    <ThemeContext.Provider value={{theme,setTheme,auth,setAuth}}>
     <BrowserRouter>
     <Navbar/>
        <Routes>
@@ -18,6 +23,7 @@ const App = () => {
          <Route path="/signup" element={<Signup/>}/>
        </Routes>
     </BrowserRouter>
+    </ThemeContext.Provider>
     </>
   )
 }
