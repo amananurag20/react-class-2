@@ -3,27 +3,34 @@ import "./Login.css"
 
 const Login = () => {
 
-const [email, setEmail]=useState("");
-const [password, setPassword]= useState("")
-
-
+// const [email, setEmail]=useState("");
+// const [password, setPassword]= useState("")
+// const [mobile, setMobile]=useState("");
+const [formData, setFormData]=useState({
+  email:"",
+  password:"",
+  mobile:"",
+})
     const handleChange=(event)=>{
-        setEmail(event.target.value);
-    }
+      const field=event.target.name;
+      const newValue=event.target.value;
 
-    const handlePassword=(e)=>{
-        setPassword(e.target.value);
-    }
+      setFormData({...formData,[field]:newValue});
+    }    
 
-    console.log(email)
-    console.log(password)
+    console.log(formData)
+
   return (
     <div className="input-div">
       
       <label htmlFor='email'>Email</label>
-      <input placeholder='Email' id='email' onChange={handleChange} value={email}></input>
-      <label htmlFor='pass'>Password</label>
-      <input type='password' placeholder='password' id='pass' value={password} onChange={handlePassword}></input>
+      <input placeholder='Email' id='email' onChange={handleChange} value={formData.email} name="email"></input>
+
+      <label htmlFor='password'>Password</label>
+      <input type='password' placeholder='password' id='password' value={formData.password} onChange={handleChange} name="password"></input>
+
+         <label htmlFor='mobile'>mobile</label>
+      <input  placeholder='mobile' id='mobile' value={formData.mobile} onChange={handleChange} name="mobile"></input>
 
       <button>Login</button>
       
