@@ -1,12 +1,11 @@
 import { useContext } from "react"
-import ThemeContext from "../context/ThemeContext"
+import { ThemeContext } from "../context/ThemeContext";
+
 
 
 const Mobile = ({name, price=30000}) => {
    
   const {theme}= useContext(ThemeContext);
-
-
 
   return (
     <div>

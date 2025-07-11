@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "./Navbar.css"
 import { useContext } from "react"
-import ThemeContext from "../context/ThemeContext"
+import {ThemeContext} from "../context/ThemeContext"
 
 const Navbar = () => {
   const {setTheme,theme}=useContext(ThemeContext);

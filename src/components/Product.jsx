@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Mobile from './Mobile'
 import Rating from './Rating'
 
-const Product = () => {
+const Product = (props) => {
+  console.log({props})
 
     const [count, setCount]= useState(1000)
   return (

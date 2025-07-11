@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import Product from "./Product";
+import Rating from "./Rating";
 
 
 const HomePage = () => {
@@ -13,8 +14,9 @@ const HomePage = () => {
       <h1>Count :{count}</h1>
 
       <button onClick={()=>{setCount(count+1000)}}>Click me</button>
-      <Header/>
-      <Product/>
+      <Header></Header>
+      
+      <Product name={"aman"} >amananurag</Product>
     </div>
   )
 }
