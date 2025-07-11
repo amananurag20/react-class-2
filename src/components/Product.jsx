@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+
 import Mobile from './Mobile'
-import Rating from './Rating'
 
-const Product = (props) => {
-  console.log({props})
+import { useParams } from 'react-router-dom'
 
-    const [count, setCount]= useState(1000)
+const Product = () => {
+  const data= useParams();
+  console.log(data)
   return (
     <div>
-      <Mobile/>
-      <Rating count={count} setCount={setCount}/>
+      <Mobile/>    
     </div>
   )
 }

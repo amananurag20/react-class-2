@@ -6,6 +6,7 @@ import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import ThemeProvider from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
+import Product from "./components/Product";
 const App = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/product/:id/:user" element={<Product/>}/>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
