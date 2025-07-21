@@ -1,13 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword]=useState("");
-
-
 
 
   const handleClick=async()=>{
@@ -18,14 +17,12 @@ const Signup = () => {
       });
 
       if(response.data.success){
-        alert("signup successfull")
+       toast.success("Signup success");
+     
       }
       else{
-        alert("signup failed")
-      }
-
-
-     
+        toast.warning("Signup failed")
+      }     
   }
 
   return (
