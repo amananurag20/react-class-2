@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ThemeContext } from "../context/ThemeContext";
+import { Outlet } from "react-router-dom";
 
 
 
@@ -15,6 +16,9 @@ const Mobile = ({name, price=30000}) => {
       style={{width:"200px"}}></img>
 
       <h1>current theme:  {theme}</h1>
+
+      <Outlet/>
+      <Outlet/><Outlet/><Outlet/><Outlet/>
       
     </div>
   )

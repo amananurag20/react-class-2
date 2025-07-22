@@ -21,7 +21,7 @@ const Navbar = () => {
       </div>
       <div className='right-box'>
         <button onClick={handleClick}>Change theme</button>
-        <Link to="/">HomePage</Link>
+        <Link to="/home">HomePage</Link>
         <Link to="/mobile">Mobile</Link>
         <Link to={"/login"}>Login</Link>
         <Link to={"/signup"}>Signup</Link>
