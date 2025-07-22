@@ -1,12 +1,45 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
-   const isAuthenticated=false;
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [IsLoading, setIsLoading] = useState(true);
 
-  return (
-    isAuthenticated?<Outlet/>:<Navigate to={"login"}/>
-  )
-}
+  const checkToken = async () => {
+    const token = localStorage.getItem("token");
 
-export default ProtectedRoute
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/check-token/${token}`
+      );
+
+      if (response.data.success) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+
+      setIsLoading(false);
+    } catch (e) {
+      console.log(e);
+      setIsLoading(false)
+    }
+  };
+  useEffect(() => {
+    checkToken();
+
+    setInterval(() => {
+      checkToken();
+    }, 30000);
+
+  }, []);
+
+  if (IsLoading) {
+    return <h1>....Loading</h1>;
+  }
+
+  return isAuthenticated ? <Outlet /> : <Navigate to={"login"} />;
+};
+
+export default ProtectedRoute;
