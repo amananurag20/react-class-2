@@ -11,7 +11,7 @@ const ProtectedRoute = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/check-token/${token}`
+        `http://localhost:5000/user/check-token/${token}`
       );
 
       if (response.data.success) {
