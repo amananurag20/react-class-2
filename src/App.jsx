@@ -10,9 +10,12 @@ import Product from "./components/Product";
 import Rating from "./components/Rating";
 import Food from "./components/Food";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
 const App = () => {
   return (
     <>
+    <Provider store={appStore}>
       <AuthProvider>
         <ThemeProvider>
           <BrowserRouter>
@@ -29,6 +32,7 @@ const App = () => {
           </BrowserRouter>
         </ThemeProvider>
       </AuthProvider>
+      </Provider>
     </>
   );
 };
